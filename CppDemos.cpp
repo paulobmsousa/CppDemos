@@ -15,8 +15,8 @@ int main() {
 	cout << "Starting Main -------------------------------" << endl;
 	cout << "Hello CMake." << endl;
 	week1();
-	;
 	week2();
+	week3();
 	cout << "Ending Main ---------------------------------" << endl;
 	return EXIT_SUCCESS;
 }
