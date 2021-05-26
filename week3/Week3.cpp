@@ -10,8 +10,17 @@ using namespace std;
 int week3() {
 #pragma message("Week 3 Lab ..................................")
 	cout << "Week 3 Lab .................................." << endl;
+	displayMem();
 	testFrac();
 	return 0;
+}
+
+void displayMem() {
+	int *anInt = new int(5);
+	int val = 2;
+	cout << "Integer add: " << anInt << endl;
+	cout << "Integer add: " << anInt << endl;
+	cout << "Integer add2: " << &val << endl;
 }
 
 void testFrac() {

@@ -154,7 +154,7 @@ int week2() {
 #pragma message("Week 2 Lab ..................................")
 	cout << "Week 2 Lab .................................." << endl;
 	testClasses();
-	testInput();
+	//testInput();
 	return 0;
 }
 
