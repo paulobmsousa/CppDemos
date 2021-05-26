@@ -13,7 +13,7 @@ using namespace std;
 * MyFirstClass: Example using Person definitions
 */
 
-#define DEBUG true
+#define DEBUG false
 
 namespace CST8219 {
 
@@ -154,7 +154,17 @@ int week2() {
 #pragma message("Week 2 Lab ..................................")
 	cout << "Week 2 Lab .................................." << endl;
 	testClasses();
+	testInput();
 	return 0;
+}
+
+void testInput(){
+	int num;
+	cout << "Type a number: ";
+	if (cin >> num)
+		cout << "You have entered a number " << num << endl;
+	else
+		cout << "ERROR, Please enter a number!" << endl;
 }
 
 void testClasses() {

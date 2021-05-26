@@ -8,3 +8,4 @@
 // TODO: Reference additional headers your program requires here.
 int week2();
 void testClasses();
+void testInput();
