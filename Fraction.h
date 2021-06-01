@@ -1,9 +1,10 @@
 #pragma once
 
+#include <string>
 
 class Fraction {
+private:
 	int numerator, denominator;
-
 	const static int num = 0; //initialize here needs const
 
 public:

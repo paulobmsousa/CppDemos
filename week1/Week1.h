@@ -4,5 +4,5 @@
 #pragma once
 
 // TODO: Reference additional headers your program requires here.
-int week1();
 void printFunc();
+int week1();

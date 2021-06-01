@@ -6,5 +6,6 @@
 #define NAMESIZE 255
 
 // TODO: Reference additional headers your program requires here.
-int week2();
 void testClasses();
+void testNewClasses();
+int week2();

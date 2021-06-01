@@ -13,10 +13,22 @@ using namespace std;
 int main() {
 #pragma message("Main -------------------------------")
 	cout << "Starting Main -------------------------------" << endl;
-	cout << "Hello CMake." << endl;
-	week1();
-	week2();
-	week3();
+	switch (WEEK) {
+	case 1:
+		week1();
+		break;
+	case 2:
+		week2();
+		break;
+	case 3:
+		week3();
+		break;
+	case 4:
+		week4();
+		break;
+	default:
+		cout << "Hello CMake." << endl;
+	}
 	cout << "Ending Main ---------------------------------" << endl;
 	return EXIT_SUCCESS;
 }

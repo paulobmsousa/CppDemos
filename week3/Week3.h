@@ -1,7 +1,11 @@
 #pragma once
-#include "Fraction.h"
 
-void testFrac();
-void printFraction(Fraction&);
-void foo(int, int, int, int);
+void inputExampleFunction();
+void testAge1();
+void testAge2();
+void testArrays();
+void testDynamicMemory();
+void testMemClass();
+void testNewInt();
+void testVector();
 int week3();

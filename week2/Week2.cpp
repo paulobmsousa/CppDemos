@@ -13,8 +13,6 @@ using namespace std;
 * MyFirstClass: Example using Person definitions
 */
 
-#define DEBUG true
-
 namespace CST8219 {
 
 	class MyFirstClass {
@@ -121,16 +119,43 @@ namespace CST8219 {
 	*/
 
 	class ExtraClass {
+	
 	private:
+	
 		string name;
 		int x, y;
+
 	public:
-		ExtraClass(char* str) : name(str), x(0), y(0) {
-		#if DEBUG
-			cout << "Creating "
-				<< typeid(this).name() << endl;
-		#endif
+		
+		ExtraClass(string name, int x, int y) : name(name), x(x), y(y) {
+			#if DEBUG
+				cout << "Creating [1] "
+					<< typeid(this).name() << endl;
+			#endif
 			// Similar to: name=str, x=0, y=0
+		}
+
+		ExtraClass(char* str, int x, int y) : name(str), x(x), y(y) {
+			#if DEBUG
+				cout << "Creating [1] "
+					<< typeid(this).name() << endl;
+			#endif
+			// Similar to: name=str, x=0, y=0
+		}
+
+		ExtraClass(char* str) : name(str), x(0), y(0) {
+			#if DEBUG
+				cout << "Creating [2] "
+					<< typeid(this).name() << endl;
+			#endif
+			// Similar to: name=str, x=0, y=0
+		}
+
+		ExtraClass() : name("[Noname]"), x(0), y(0) {
+			#if DEBUG
+				cout << "Creating [4] "
+					<< typeid(this).name() << endl;
+			#endif
 		}
 		void printData() {
 			cout
@@ -138,14 +163,27 @@ namespace CST8219 {
 				<< ", x: " << x
 				<< ", y: " << y << endl;
 		}
-	#if DEBUG
+
 		~ExtraClass() {
-			cout << "Deleting "
-				<< typeid(this).name()
-				<< endl;
+			#if DEBUG
+				cout << "Deleting "
+					<< typeid(this).name()
+					<< endl;
+			#endif
 		}
-	#endif
+
+		ExtraClass(ExtraClass* eC)
+			: ExtraClass(eC->name, eC->x, eC->y) {};
+
+		ExtraClass(ExtraClass &eC)
+			: ExtraClass(eC.name, eC.x, eC.y) {};
+
+		void printAddress() {
+			cout << "Game: ADD: " << this << '\n';
+		}
+
 	};
+
 }//nameSpace end
 
 // METHODS  ..........................................................................................................
@@ -154,6 +192,7 @@ int week2() {
 #pragma message("Week 2 Lab ..................................")
 	cout << "Week 2 Lab .................................." << endl;
 	testClasses();
+	testNewClasses();
 	return 0;
 }
 
@@ -183,4 +222,19 @@ void testClasses() {
 	// Using ExtraClass
 	ExtraClass ec1 = ExtraClass("Test");
 	ec1.printData();
+
+	// Testing 
+}
+
+void testNewClasses() {
+	using namespace CST8219;
+	ExtraClass ec1 = ExtraClass();
+	ec1.printData();
+	ExtraClass ec2 = ExtraClass(ec1);
+	ec2.printData();
+	ExtraClass ec3 = ExtraClass(ec1);
+	ec3.printData();
+	ec1.printAddress();
+	ec2.printAddress();
+	ec3.printAddress();
 }
