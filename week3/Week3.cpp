@@ -16,7 +16,7 @@ int week3() {
 	//inputExampleFunction();
 	//testAge1();
 	//testAge2();
-	//testMemClass();
+	testMemClass();
 	testDynamicMemory();
 	testMoreMemory();
 	testArrays();
@@ -91,7 +91,7 @@ void testDynamicMemory() {
 	delete(anInt);
 	cout << "Integer (after deletion): " << *anInt << " - Address: " << anInt << endl;
 	int* anotherInt = (int*) malloc(sizeof(int));
-	if (anotherInt != NULL) {
+	if (anotherInt) {
 		*anotherInt = 5;
 		cout << "Another Integer: " << *anotherInt << " - Address: " << anotherInt << endl;
 		free(anotherInt);
@@ -188,4 +188,9 @@ void testVector() {
 	for (it = v.begin(); it != v.end(); ++it) {
 		cout << *it << " " << endl;
 	}
+	cout << "Vector with auto and each loop..." << endl;
+	for (auto x : v) {
+		cout << x << endl;
+	}
+
 }

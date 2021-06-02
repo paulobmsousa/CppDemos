@@ -13,9 +13,9 @@ int Fraction::count = 0;
 int week4() {
 #pragma message("Week 4 Lab ..................................")
 	cout << "Week 4 Lab .................................." << endl;
+	foo(1, 2, 3);
 	testFrac();
 	testReadWrite();
-	foo(1, 2, 3);
 	return 0;
 }
 
