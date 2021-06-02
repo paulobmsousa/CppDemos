@@ -93,9 +93,9 @@ namespace CST8219 {
 		char fullName[NAMESIZE] = {};
 	public:
 		char* getFullName() {
-			strcpy(fullName, getLastName());
-			strcat(fullName, ", ");
-			strcat(fullName, getFirstName());
+			strcpy_s(fullName, getLastName());
+			strcat_s(fullName, ", ");
+			strcat_s(fullName, getFirstName());
 			return fullName;
 		}
 		void printFullName() {
