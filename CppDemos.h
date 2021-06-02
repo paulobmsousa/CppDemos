@@ -5,7 +5,7 @@
 
 #define DEBUG false
 
-#define WEEK 4
+#define WEEK 3
 
 #include "week1/Week1.h"
 #include "week2/Week2.h"

@@ -6,6 +6,7 @@ void testAge2();
 void testArrays();
 void testDynamicMemory();
 void testMemClass();
-void testNewInt();
+void testMoreMemory();
+void testStrings();
 void testVector();
 int week3();

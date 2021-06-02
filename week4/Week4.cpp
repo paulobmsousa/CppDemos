@@ -14,11 +14,13 @@ int week4() {
 #pragma message("Week 4 Lab ..................................")
 	cout << "Week 4 Lab .................................." << endl;
 	testFrac();
+	testReadWrite();
 	foo(1, 2, 3);
 	return 0;
 }
 
 void testFrac() {
+	cout << "testFrac()..." << endl;
 	Fraction ambig = Fraction(); //must be line 13
 	Fraction f1(5); //d = 1 by default
 	Fraction refObject(f1); //copy f by reference
@@ -31,7 +33,6 @@ void testFrac() {
 	Fraction f3 = sum(f1, f2);
 	printFraction(f3); //hidden &f
 	cout << "Fraction count: " << Fraction::count << endl;
-	testReadWrite();
 }
 
 void printFraction(Fraction& f) {
@@ -68,6 +69,7 @@ void read(Fraction f) {
 }
 
 void testReadWrite() {
+	cout << "testReadWrite()..." << endl;
 	Fraction f = Fraction();
 	cin >> f;
 	cout << f;
@@ -75,6 +77,7 @@ void testReadWrite() {
 }
 
 void foo(int a, int b, int c, int d) {
+	cout << "foo()..." << endl;
 	cout << "a=" << a << ", "
 		<< "b=" << b << ", "
 		<< "c=" << c << ", "

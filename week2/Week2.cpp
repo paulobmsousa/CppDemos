@@ -2,7 +2,7 @@
 //
 
 #include <iostream>
-#include <string.h>
+#include <string>
 #include "Week2.h"
 
 using namespace std;

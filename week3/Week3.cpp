@@ -16,15 +16,17 @@ int week3() {
 	//inputExampleFunction();
 	//testAge1();
 	//testAge2();
-	//testDynamicMemory();
-	//testNewInt();
-	//testArrays();
 	//testMemClass();
+	testDynamicMemory();
+	testMoreMemory();
+	testArrays();
+	testStrings();
 	testVector();
 	return 0;
 }
 
 void testAge1() {
+	cout << "testAge1()..." << endl;
 	int age;
 	cout << "[Age test 1]...";
 	cout << "Enter the age: ";
@@ -38,6 +40,7 @@ void testAge1() {
 
 
 void testAge2() {
+	cout << "testAge2()..." << endl;
 	int age;
 	cout << "[Age test 2]...";
 	cout << "Enter the age: ";
@@ -52,6 +55,7 @@ void testAge2() {
 }
 
 void inputExampleFunction() {
+	cout << "inputExampleFunction()..." << endl;
 	string name;
 	cout << "Enter a name: ";
 	while (!getline(cin, name)) {
@@ -62,27 +66,55 @@ void inputExampleFunction() {
 	cout << "Name entered: " << name << endl;
 }
 
+void testStrings() {
+	cout << "testStrings()..." << endl;
+	string s1, s2, s3;
+	cout << "string: " << s1 << endl;
+	s1 = "Paulo";
+	s2 = "Sousa";
+	s3 = s1 + s2;
+	cout << "string: " << s3 << endl;
+	s2 = "Paulo";
+	cout << "Addr(s1): " << &s1 << ", Addr(s2): " << &s2 << endl;
+	if (s1 == s2)
+		cout << "Strings are the same." << endl;
+	else
+		cout << "Strings are different." << endl;
+	s2 = s1 = "Profesor";
+	cout << "Addr(s1): " << &s1 << ", Addr(s2): " << &s2 << endl;
+}
+
 void testDynamicMemory() {
+	cout << "testDynamicMemory()..." << endl;
 	int* anInt = new int(5);
 	cout << "Integer: " << *anInt << " - Address: " << anInt << endl;
 	delete(anInt);
-	///cout << "Integer: " << *anInt << " - Address: " << anInt << endl;
+	cout << "Integer (after deletion): " << *anInt << " - Address: " << anInt << endl;
+	int* anotherInt = (int*) malloc(sizeof(int));
+	if (anotherInt != NULL) {
+		*anotherInt = 5;
+		cout << "Another Integer: " << *anotherInt << " - Address: " << anotherInt << endl;
+		free(anotherInt);
+		cout << "Another Integer (after deletion): " << *anotherInt << " - Address: " << anotherInt << endl;
+	}
 }
 
-void testNewInt() {
+void testMoreMemory() {
+	cout << "testMoreMemory()..." << endl;
 	int num1(10);
 	cout << "Integer: " << num1 << " - Address: " << &num1 << endl;
 	int *num2 = new int(10);
 	cout << "Integer: " << *num2 << " - Address: " << num2 << endl;
 	int num3 = 10;
 	cout << "Integer: " << num3 << " - Address: " << &num3 << endl;
-	string name1 = "Eric";
+	string name1 = "Paulo";
 	cout << "Name: " << name1 << " - Address: " << &name1 << endl;
-	string name2 ("Eric");
+	string name2 ("Paulo");
 	cout << "Name: " << name2 << " - Address: " << &name2 << endl;
 }
 
 void testArrays() {
+	cout << "testArrays()..." << endl;
 	int size = 3;
 	// Unidimensional
 	cout << "Unidimensional array..." << endl;
@@ -128,6 +160,7 @@ public:
 };
 
 void testMemClass() {
+	cout << "testMemClass()..." << endl;
 	ClassTemp ct;
 	int classsize = sizeof(ct);
 	int totalsize = sizeof(int) + 2*sizeof(bool);
@@ -139,11 +172,13 @@ void testMemClass() {
 }
 
 void testVector() {
+	cout << "testVector()..." << endl;
 	int size = 3;
 	vector<int> v;
 	// Creating vector
 	cout << "Vector without iterator..." << endl;
 	for (int j=0; j<size; ++j)	{
+		///v[j] = j;
 		v.push_back(j);
 		cout << v[j] << " " << endl;
 	}
