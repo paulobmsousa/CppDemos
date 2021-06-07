@@ -26,7 +26,9 @@ int main() {
 	case 4:
 		week4();
 		break;
-	default:
+	case 5:
+		week5();
+	break;	default:
 		cout << "Hello CMake." << endl;
 	}
 	cout << "Ending Main ---------------------------------" << endl;

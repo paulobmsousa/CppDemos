@@ -9,13 +9,13 @@ using namespace std;
 
 // Static Initialization
 int Fraction::count = 0;
+const static int count3 = 0;
 
 int week4() {
 #pragma message("Week 4 Lab ..................................")
 	cout << "Week 4 Lab .................................." << endl;
 	foo(1, 2, 3);
 	testFrac();
-	testReadWrite();
 	return 0;
 }
 
@@ -58,22 +58,6 @@ Fraction sum(Fraction f1, Fraction f2) {
 		f2.getNumerator() * f1.getDenominator());
 	f.setDenominator(f1.getDenominator() * f2.getDenominator());
 	return f;
-}
-
-void write(Fraction f) {
-	cout << f << endl;
-}
-
-void read(Fraction f) {
-	cin >> f;
-}
-
-void testReadWrite() {
-	cout << "testReadWrite()..." << endl;
-	Fraction f = Fraction();
-	cin >> f;
-	cout << f;
-	cout << endl;
 }
 
 void foo(int a, int b, int c, int d) {
