@@ -16,32 +16,16 @@ Fraction::Fraction(int n, int d) { //default 0/1
 
 Fraction::Fraction(Fraction& other) :
 	Fraction(other.getNumerator(), other.getDenominator()) {
-	//std::cout << "Copying from:" << &other << std::endl;
 }
 
 Fraction::Fraction(Fraction* pOther) : Fraction(*pOther) {
-	//std::cout << "Copying from:" << pOther << std::endl;
-}
-
-//setNumerator and getNumerator are Fraction:: functions:
-void Fraction::setNumerator(int n) {
-	numerator = n;
-}
-
-int Fraction::getNumerator(void) const {
-	return numerator;
-}
-
-void Fraction::setDenominator(int d) {
-	denominator = d;
-}
-
-int Fraction::getDenominator(void) const {
-	return denominator;
 }
 
 float Fraction::asFloat(void) const {
-	return (float)(numerator/denominator);
+	float f = (float)(1.0 * numerator / denominator);
+	Ratio r = Ratio();
+	///r.r = f;
+	return f;
 }
 
 ostream& operator<<(ostream& out, const Fraction& f) {
@@ -82,11 +66,105 @@ bool Fraction::operator!=(const Fraction& f) {
 
 Fraction Fraction::operator++(int n) {
 	Fraction copy(this);
-	this->setNumerator(this->getNumerator() + 1);
+	numerator++;
+	//this->setNumerator(this->getNumerator() + 1);
 	return copy;
 }
 
 Fraction Fraction::operator++() {
-	this->setNumerator(this->getNumerator() + 1);
+	numerator++;
+	//this->setNumerator(this->getNumerator() + 1);
 	return this;
+}
+
+Fraction Fraction::operator--(int n) {
+	Fraction copy(this);
+	numerator--;
+	//this->setNumerator(this->getNumerator() - 1);
+	return copy;
+}
+
+Fraction Fraction::operator--() {
+	numerator--;
+	//this->setNumerator(this->getNumerator() - 1);
+	return this;
+}
+
+void Ratio::setRatio(Fraction& f) {
+	///float fval = f.numerator*1.0 / f.denominator;
+	float fval = f.asFloat();
+	this->r = fval;
+}
+
+void Ratio::showRatio() {
+	cout << "Ratio: " << this->r << endl;
+}
+
+Fraction Fraction::operator+(Fraction& other) {
+	numerator = numerator + other.numerator;
+	denominator = denominator + other.denominator;
+	return this;
+	/*
+	return Fraction(numerator + other.numerator,
+		denominator + other.denominator);
+	*/
+}
+Fraction Fraction::operator-(Fraction& other) {
+	numerator = numerator - other.numerator;
+	denominator = denominator - other.denominator;
+	return this;
+	/*
+	return Fraction(numerator - other.numerator,
+		denominator - other.denominator);
+	*/
+}
+Fraction Fraction::operator*(Fraction& other) {
+	numerator = numerator * other.numerator;
+	denominator = denominator * other.denominator;
+	return this;
+	/*
+	return Fraction(numerator * other.numerator,
+		denominator * other.denominator);
+	*/
+}
+Fraction Fraction::operator/(Fraction& other) {
+	numerator = numerator / other.numerator;
+	denominator = denominator / other.denominator;
+	return this;
+	/*
+	return Fraction(numerator / other.numerator,
+		denominator / other.denominator);
+	*/
+}
+
+Fraction Fraction::operator+=(const Fraction& other) {
+	numerator = numerator + other.numerator;
+	denominator = denominator + other.denominator;
+	return Fraction(numerator, denominator);
+}
+Fraction Fraction::operator-=(const Fraction& other) {
+	numerator = numerator - other.numerator;
+	denominator = denominator - other.denominator;
+	return Fraction(numerator, denominator);
+}
+Fraction Fraction::operator*=(const Fraction& other) {
+	numerator = numerator * other.numerator;
+	denominator = denominator * other.denominator;
+	return Fraction(numerator, denominator);
+}
+Fraction Fraction::operator/=(const Fraction& other) {
+	numerator = numerator / other.numerator;
+	denominator = denominator / other.denominator;
+	return Fraction(numerator, denominator);
+}
+
+int Fraction::operator[](int index) {
+	switch (index) {
+	case 1:
+		return numerator;
+	case 2:
+		return denominator;
+	default:
+		return 0;
+	}
 }

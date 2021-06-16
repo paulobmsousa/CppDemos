@@ -58,5 +58,13 @@ void testOperators() {
 	Fraction f2 = f1++;
 	Fraction f3 = ++f1;
 	cout << "f1 = " << f1 << ", f2 = " << f2 << ", f3 = " << f3 << endl;
+	Fraction f4 = Fraction(7);
+	Fraction f5 = Fraction(5, 8);
+	f4--;
+	--f5;
+	cout << "f4 = " << f4 << ", f5 = " << f5 << endl;
+	Fraction f6 = Fraction();
+	f6--;
+	cout << "f6 = " << f6 << endl;
 }
 
