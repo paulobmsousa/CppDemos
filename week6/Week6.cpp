@@ -10,10 +10,13 @@ int week6() {
 	//testMoreOperators();
 	//testIndex();
 	//testFriends();
-	//testVirtual();
+	//testInline();
+	testVirtual();
 	testVirtualFunctions();
+	testVirtualDestructor();
 	return 0;
 }
+
 
 // MORE ABOUT OPERATORS ..............................................
 
@@ -69,6 +72,7 @@ void testIndex() {
 void testFriends() {
 	cout << "testFriends()..." << endl;
 	Fraction f = Fraction(2, 5);
+	//cout << "f=" << f << end;
 	Ratio r;
 	r.setRatio(f);
 	r.showRatio();
@@ -76,20 +80,8 @@ void testFriends() {
 }
 
 void showAll(Ratio& r) {
-	///cout << "Ratio: " << r.r << endl;
+	cout << "Ratio: " << r.r << endl;
 }
-
-// MULTIPLE INHERITANCE ..........................................
-
-void testInheritance() {
-	ChildC objC;
-	cout << "r inherited from ChildA = " << objC.ChildA::r << endl;
-	cout << "r inherited from ChildB = " << objC.ChildB::r << endl;
-	cout << "ChildC.a = " << objC.a
-		<< ", ChildC.b = " << objC.b
-		<< ", ChildC.c = " << objC.c << endl;
-}
-
 
 // Friend examples: https://www.geeksforgeeks.org/friend-class-function-cpp/
 
@@ -105,16 +97,4 @@ void testVirtual() {
 	objB.myFunction();
 	objC.myFunction();
 	objD.myFunction();
-}
-
-void testVirtualFunctions() {
-	ChildA* pointerChild = new ChildC();
-	pointerChild->myFunction1();
-	pointerChild->myFunction2();
-}
-
-void testVirtualDestructor() {
-	ChildA* pointerChild = new ChildC();
-	delete pointerChild;
-	cout << "End of program";
 }

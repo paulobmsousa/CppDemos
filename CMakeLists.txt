@@ -13,7 +13,7 @@ add_executable (CppDemos
 	"week4/Week4.cpp" "week4/Week4.h"
 	"Week5/Week5.cpp" "Week5/Week5.h"
 	"Fraction.h" "Fraction.cpp" 
-	 "week6/Week6.cpp" "week6/Week6.h")
+	 "week6/Week6.cpp" "week6/Week6.h" "week7/Week7.cpp" "week7/Week7.h" "FractionT.cpp" "FractionT.h")
 
 # TODO: Add tests and install targets if needed.
 

@@ -21,12 +21,13 @@ Fraction::Fraction(Fraction& other) :
 Fraction::Fraction(Fraction* pOther) : Fraction(*pOther) {
 }
 
+/*
 float Fraction::asFloat(void) const {
-	float f = (float)(1.0 * numerator / denominator);
-	Ratio r = Ratio();
-	///r.r = f;
-	return f;
+	return (float)(1.0*numerator / denominator);
+	//Ratio r = Ratio();
+	//r.r = f;
 }
+*/
 
 ostream& operator<<(ostream& out, const Fraction& f) {
 	out << f.getNumerator()
@@ -44,10 +45,10 @@ istream& operator>>(istream& in, Fraction& f) {
 	return in;
 }
 
-const Fraction& Fraction::operator=(const Fraction& f) {
+Fraction& Fraction::operator=(const Fraction& f) {
 	this->setNumerator(f.getNumerator());
 	this->setDenominator(f.getDenominator());
-	return this;
+	return *this;
 }
 
 bool Fraction::operator==(const Fraction& f) {
@@ -91,8 +92,8 @@ Fraction Fraction::operator--() {
 }
 
 void Ratio::setRatio(Fraction& f) {
-	///float fval = f.numerator*1.0 / f.denominator;
-	float fval = f.asFloat();
+	float fval = (float)(f.numerator*1.0 / f.denominator);
+	//float fval = f.asFloat();
 	this->r = fval;
 }
 
@@ -138,9 +139,9 @@ Fraction Fraction::operator/(Fraction& other) {
 }
 
 Fraction Fraction::operator+=(const Fraction& other) {
-	numerator = numerator + other.numerator;
-	denominator = denominator + other.denominator;
-	return Fraction(numerator, denominator);
+	//numerator = numerator + other.numerator;
+	//denominator = denominator + other.denominator;
+	return Fraction(numerator + other.numerator, denominator + other.denominator);
 }
 Fraction Fraction::operator-=(const Fraction& other) {
 	numerator = numerator - other.numerator;

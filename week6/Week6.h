@@ -2,46 +2,6 @@
 #include "../Fraction.h"
 
 
-// CLASSES FOR MULTIPLE INHERITANCE ........................................
-
-class Root {
-	public:
-		int r;
-};
-class ChildA: public Root {
-	public:
-		int a;
-		void myFunction1(void) {
-			cout << "In A::MyFunction1()" << endl;
-		}
-		virtual void myFunction2(void) {
-			cout << "In A::MyFunction2()" << endl;
-		}
-		virtual ~ChildA() {
-			cout << "Calling destructor from A" << endl;
-		}
-};
-class ChildB : public Root {
-	public:
-		int b;
-		void myFunction1(void) {
-			cout << "In B::MyFunction1()" << endl;
-		}
-};
-class ChildC : public ChildA, public ChildB {
-	public:
-		int c;
-		void myFunction1(void) {
-			cout << "In C::MyFunction1()" << endl;
-		}
-		void myFunction2(void) {
-			cout << "In C::MyFunction2()" << endl;
-		}
-		virtual ~ChildC() {
-			cout << "Calling destructor from C" << endl;
-		}
-};
-
 // CLASSES FOR VIRTUAL TEST ........................................
 
 class ClassA {

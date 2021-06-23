@@ -5,7 +5,7 @@
 
 #define DEBUG false
 
-#define WEEK 6
+#define WEEK 7
 
 #include "week1/Week1.h"
 #include "week2/Week2.h"
@@ -13,6 +13,7 @@
 #include "week4/Week4.h"
 #include "week5/Week5.h"
 #include "week6/Week6.h"
+#include "week7/Week7.h"
 int main();
 
 // TODO: Reference additional headers your program requires here.

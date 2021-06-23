@@ -10,7 +10,7 @@ class Fraction {
 private:
 	int numerator, denominator;
 	const static int num; // initialize here needs const
-	///friend class Ratio;
+	friend class Ratio;
 public:
 	static int count;
 	const static int count2 = 0;
@@ -26,7 +26,9 @@ public:
 	inline void setDenominator(int);
 	*/
 	
-	float asFloat(void) const;
+	inline float Fraction::asFloat(void) const {
+		return (float)(1.0 * numerator / denominator);
+	}
 
 	inline int Fraction::getNumerator(void) const {
 		return numerator;
@@ -47,7 +49,7 @@ public:
 	friend ostream& operator<<(ostream& out, const Fraction& f);
 	friend istream& operator>>(istream& in, Fraction& f);
 
-	const Fraction& Fraction::operator=(const Fraction& f);
+	Fraction& Fraction::operator=(const Fraction& f);
 	bool Fraction::operator==(const Fraction& f);
 	bool Fraction::operator!=(const Fraction& f);
 	// Self operators
@@ -66,6 +68,7 @@ public:
 	Fraction Fraction::operator/=(const Fraction&);
 	// Index operator
 	int Fraction::operator[](int);
+
 };
 
 class Ratio {
@@ -74,6 +77,6 @@ private:
 public:
 	void setRatio(Fraction& f);
 	void showRatio();
-	///friend float Fraction::asFloat(void) const;
-	///friend void showAll(Ratio&);
+	friend float Fraction::asFloat(void) const;
+	friend void showAll(Ratio&);
 };
